@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blahh blahhh!</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@700&family=Orbitron:wght@700&family=Playfair+Display:wght@700&family=Press+Start+2P&family=Lobster&family=Bebas+Neue&family=Monoton&family=Righteous&family=Poiret+One&family=Fjalla+One&family=Great+Vibes&family=Rubik+Moonrocks&family=Shrikhand&family=Fredoka+One&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ede3d4, #e8dcc8, #000000);
+      background-size: 400% 400%;
+      animation: gradientShift 25s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      flex-direction: column;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      color: #AD0C14;
+      font-size: 12vw;
+      text-align: center;
+      position: relative;
+      z-index: 20;
+      animation: fadeInOut 1s infinite alternate;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      text-align: center;
+      color: white;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      opacity: 0.8;
+      user-select: none;
+    }
+
+    @keyframes fadeInOut {
+      from { opacity: 1; }
+      to { opacity: 0.85; transform: scale(1.05); }
+    }
+
+    .symbol {
+      position: absolute;
+      top: 0;
+      font-size: 1.5rem;
+      opacity: 0.95;
+      animation: fall linear forwards;
+      user-select: none;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="text">SOJAA</h1>
+
+  <!-- 🎶 Audio file -->
+  <audio id="bg-audio" src="your-audio.mp3"></audio>
+
+  <footer>Made without ❤️ by Nothing</footer>
+
+  <!-- Link to external JS file -->
+  <script src="script.js"></script>
+</body>
+</html>
