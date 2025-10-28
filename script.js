@@ -1,4 +1,3 @@
-// Text font animation
 const text = document.getElementById("text");
 const fonts = [
   'Pacifico', 'Raleway', 'Orbitron', 'Playfair Display', 'Press Start 2P',
@@ -12,8 +11,7 @@ setInterval(() => {
   i = (i + 1) % fonts.length;
 }, 1000);
 
-// Falling symbols
-const symbols = ['★', '♡', '✦', '❀', '❁', '♥', '✨', '✧', '❣', '☁','😔','😔','💤','🐾'];
+const symbols = ['★', '♡', '✦', '❀', '❁', '♥', '✨', '✧', '❣', '☁', '😔', '💤', '🐾'];
 const colors = [
   '#a06cd5', '#c77dff', '#9d4edd', '#6a4c93',
   '#7b2cbf', '#f28482', '#ff99ac', '#0077b6',
@@ -34,14 +32,13 @@ function createSymbol() {
 
 setInterval(createSymbol, 150);
 
-// 🎵 Background music control
 const audio = document.getElementById("bg-audio");
 audio.loop = true;
 
-// Try to autoplay, or wait for user click if blocked
-audio.play().catch(() => {
-  console.log("Autoplay blocked — waiting for click.");
-  document.body.addEventListener("click", () => {
-    audio.play();
-  }, { once: true });
-});
+document.body.addEventListener("click", () => {
+  audio.play()
+    .then(() => {
+      document.querySelector(".hint").style.display = "none";
+    })
+    .catch(err => console.log("Playback failed:", err));
+}, { once: true });
