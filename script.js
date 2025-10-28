@@ -1,0 +1,47 @@
+// Text font animation
+const text = document.getElementById("text");
+const fonts = [
+  'Pacifico', 'Raleway', 'Orbitron', 'Playfair Display', 'Press Start 2P',
+  'Lobster', 'Bebas Neue', 'Monoton', 'Righteous', 'Poiret One',
+  'Fjalla One', 'Great Vibes', 'Rubik Moonrocks', 'Shrikhand', 'Fredoka One'
+];
+
+let i = 0;
+setInterval(() => {
+  text.style.fontFamily = fonts[i];
+  i = (i + 1) % fonts.length;
+}, 1000);
+
+// Falling symbols
+const symbols = ['★', '♡', '✦', '❀', '❁', '♥', '✨', '✧', '❣', '☁','😔','😔','💤','🐾'];
+const colors = [
+  '#a06cd5', '#c77dff', '#9d4edd', '#6a4c93',
+  '#7b2cbf', '#f28482', '#ff99ac', '#0077b6',
+  '#e75480', '#9b5de5'
+];
+
+function createSymbol() {
+  const symbol = document.createElement('div');
+  symbol.classList.add('symbol');
+  symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+  symbol.style.left = Math.random() * 100 + 'vw';
+  symbol.style.color = colors[Math.floor(Math.random() * colors.length)];
+  symbol.style.animationDuration = 3 + Math.random() * 3 + 's';
+  symbol.style.fontSize = 15 + Math.random() * 25 + 'px';
+  document.body.appendChild(symbol);
+  symbol.addEventListener('animationend', () => symbol.remove());
+}
+
+setInterval(createSymbol, 150);
+
+// 🎵 Background music control
+const audio = document.getElementById("bg-audio");
+audio.loop = true;
+
+// Try to autoplay, or wait for user click if blocked
+audio.play().catch(() => {
+  console.log("Autoplay blocked — waiting for click.");
+  document.body.addEventListener("click", () => {
+    audio.play();
+  }, { once: true });
+});
