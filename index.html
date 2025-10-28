@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>blahh blahhh!</title>
+  <title>SOJAA</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@700&family=Orbitron:wght@700&family=Playfair+Display:wght@700&family=Press+Start+2P&family=Lobster&family=Bebas+Neue&family=Monoton&family=Righteous&family=Poiret+One&family=Fjalla+One&family=Great+Vibes&family=Rubik+Moonrocks&family=Shrikhand&family=Fredoka+One&display=swap">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,6 +35,7 @@
       animation: fadeInOut 1s infinite alternate;
       user-select: none;
       pointer-events: none;
+      display: none;
     }
 
     footer {
@@ -67,15 +68,41 @@
       0% { transform: translateY(0) rotate(0deg); opacity: 1; }
       100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
+
+    .start-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: opacity 1s ease;
+      z-index: 50;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .start-overlay.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
+  <!-- Start overlay -->
+  <div class="start-overlay" id="startScreen">
+    <p>✨ Tap anywhere to start 🎵</p>
+  </div>
+
   <h1 id="text">SOJAA</h1>
 
-  <!-- autoplay + muted trick -->
-  <audio id="bg-audio" src="xyzz.mp3" autoplay muted loop></audio>
+  <audio id="bg-audio" src="your-audio.mp3" loop></audio>
 
-  <footer>Made without ❤️ by Nothing</footer>
+  <footer>❤️ Made with love by blah blah</footer>
 
   <script src="script.js"></script>
 </body>
