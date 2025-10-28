@@ -6,11 +6,7 @@
   <title>blahh blahhh!</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@700&family=Orbitron:wght@700&family=Playfair+Display:wght@700&family=Press+Start+2P&family=Lobster&family=Bebas+Neue&family=Monoton&family=Righteous&family=Poiret+One&family=Fjalla+One&family=Great+Vibes&family=Rubik+Moonrocks&family=Shrikhand&family=Fredoka+One&display=swap">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       height: 100vh;
@@ -21,8 +17,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
       flex-direction: column;
+      position: relative;
     }
 
     @keyframes gradientShift {
@@ -35,7 +31,6 @@
       color: #AD0C14;
       font-size: 12vw;
       text-align: center;
-      position: relative;
       z-index: 20;
       animation: fadeInOut 1s infinite alternate;
       user-select: none;
@@ -50,7 +45,6 @@
       font-family: 'Raleway', sans-serif;
       font-size: 1rem;
       opacity: 0.8;
-      user-select: none;
     }
 
     @keyframes fadeInOut {
@@ -73,10 +67,26 @@
       0% { transform: translateY(0) rotate(0deg); opacity: 1; }
       100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
+
+    .hint {
+      position: absolute;
+      bottom: 50px;
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.9rem;
+      opacity: 0.7;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 0.3; }
+    }
   </style>
 </head>
 <body>
   <h1 id="text">SOJAA</h1>
+  <div class="hint">Click anywhere to play music 🎵</div>
 
   <audio id="bg-audio" src="xyzz.mp3"></audio>
 
