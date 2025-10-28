@@ -8,7 +8,7 @@ const fonts = [
   'Fjalla One', 'Great Vibes', 'Rubik Moonrocks', 'Shrikhand', 'Fredoka One'
 ];
 
-const symbols = ['★', '♡', '✦', '❀', '❁', '♥', '✨', '✧', '❣', '☁','😔','💤','🐾'];
+const symbols = ['★', '♡', '✦', '❀', '❁', '♥', '✧', '❣', '☁','😔','💤','🐾'];
 const colors = [
   '#a06cd5', '#c77dff', '#9d4edd', '#6a4c93',
   '#7b2cbf', '#f28482', '#ff99ac', '#0077b6',
