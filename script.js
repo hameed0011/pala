@@ -1,3 +1,4 @@
+// Fonts animation
 const text = document.getElementById("text");
 const fonts = [
   'Pacifico', 'Raleway', 'Orbitron', 'Playfair Display', 'Press Start 2P',
@@ -11,7 +12,8 @@ setInterval(() => {
   i = (i + 1) % fonts.length;
 }, 1000);
 
-const symbols = ['★', '♡', '✦', '❀', '❁', '♥', '✨', '✧', '❣', '☁', '😔', '💤', '🐾'];
+// Falling symbols
+const symbols = ['★', '♡', '✦', '❀', '❁', '♥', '✨', '✧', '❣', '☁','😔','💤','🐾'];
 const colors = [
   '#a06cd5', '#c77dff', '#9d4edd', '#6a4c93',
   '#7b2cbf', '#f28482', '#ff99ac', '#0077b6',
@@ -29,16 +31,17 @@ function createSymbol() {
   document.body.appendChild(symbol);
   symbol.addEventListener('animationend', () => symbol.remove());
 }
-
 setInterval(createSymbol, 150);
 
+// 🎶 Force audio autoplay workaround
 const audio = document.getElementById("bg-audio");
-audio.loop = true;
 
-document.body.addEventListener("click", () => {
-  audio.play()
-    .then(() => {
-      document.querySelector(".hint").style.display = "none";
-    })
-    .catch(err => console.log("Playback failed:", err));
-}, { once: true });
+// Try unmuting and playing automatically
+function tryPlay() {
+  audio.muted = false;
+  audio.play().catch(() => {
+    // Retry every 1 second until autoplay allowed
+    setTimeout(tryPlay, 1000);
+  });
+}
+tryPlay();
