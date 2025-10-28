@@ -2,7 +2,6 @@ const text = document.getElementById("text");
 const startScreen = document.getElementById("startScreen");
 const audio = document.getElementById("bg-audio");
 
-// Fonts animation setup
 const fonts = [
   'Pacifico', 'Raleway', 'Orbitron', 'Playfair Display', 'Press Start 2P',
   'Lobster', 'Bebas Neue', 'Monoton', 'Righteous', 'Poiret One',
@@ -18,7 +17,6 @@ const colors = [
 
 let fontInterval;
 
-// Falling symbols
 function createSymbol() {
   const symbol = document.createElement('div');
   symbol.classList.add('symbol');
@@ -31,24 +29,19 @@ function createSymbol() {
   symbol.addEventListener('animationend', () => symbol.remove());
 }
 
-// Start animation + audio on tap
 startScreen.addEventListener("click", () => {
   startScreen.classList.add("fade-out");
   setTimeout(() => startScreen.remove(), 1000);
 
-  // show text
   text.style.display = "block";
 
-  // start font cycle
   let i = 0;
   fontInterval = setInterval(() => {
     text.style.fontFamily = fonts[i];
     i = (i + 1) % fonts.length;
   }, 1000);
 
-  // start falling symbols
   setInterval(createSymbol, 150);
 
-  // start audio
   audio.play().catch(err => console.log("Autoplay blocked:", err));
 });
